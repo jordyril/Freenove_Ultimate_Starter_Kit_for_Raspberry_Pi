@@ -24,7 +24,7 @@ def loop():
         if GPIO.input(buttonPin) == GPIO.LOW:  # if button is pressed
             GPIO.output(buzzerPin, GPIO.HIGH)  # turn on buzzer
             print("buzzer turned on >>>")
-        else:  # if button is relessed
+        else:  # if button is released
             GPIO.output(buzzerPin, GPIO.LOW)  # turn off buzzer
             print("buzzer turned off <<<")
 
@@ -40,4 +40,3 @@ if __name__ == "__main__":  # Program entrance
         loop()
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         destroy()
-

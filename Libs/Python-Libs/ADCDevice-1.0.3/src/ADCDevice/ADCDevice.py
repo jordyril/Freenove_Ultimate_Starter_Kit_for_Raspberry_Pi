@@ -27,19 +27,19 @@ class ADCDevice(object):
     def close(self):
         self.bus.close()
         
-# class PCF8591(ADCDevice):
-#     def __init__(self):
-#         super(PCF8591, self).__init__()
-#         self.cmd = 0x40     # The default command for PCF8591 is 0x40.
-#         self.address = 0x48 # 0x48 is the default i2c address for PCF8591 Module.
+class PCF8591(ADCDevice):
+    def __init__(self):
+        super(PCF8591, self).__init__()
+        self.cmd = 0x40     # The default command for PCF8591 is 0x40.
+        self.address = 0x48 # 0x48 is the default i2c address for PCF8591 Module.
         
-#     def analogRead(self, chn): # PCF8591 has 4 ADC input pins, chn:0,1,2,3
-#         value = self.bus.read_byte_data(self.address, self.cmd+chn)
-#         value = self.bus.read_byte_data(self.address, self.cmd+chn)
-#         return value
+    def analogRead(self, chn): # PCF8591 has 4 ADC input pins, chn:0,1,2,3
+        value = self.bus.read_byte_data(self.address, self.cmd+chn)
+        value = self.bus.read_byte_data(self.address, self.cmd+chn)
+        return value
     
-#     def analogWrite(self,value): # write DAC value
-#         self.bus.write_byte_data(address,cmd,value)	
+    def analogWrite(self,value): # write DAC value
+        self.bus.write_byte_data(address,cmd,value)	
 
 class ADS7830(ADCDevice):
     def __init__(self):
