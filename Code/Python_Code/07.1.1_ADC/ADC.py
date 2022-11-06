@@ -6,16 +6,14 @@
 # modification: 2020/03/06
 ########################################################################
 import time
-from ADCDevice import PCF8591, ADS7830, ADCDevice
+from ADCDevice import ADS7830, ADCDevice
 
 adc = ADCDevice()  # Define an ADCDevice class object
 
 
 def setup():
     global adc
-    if adc.detectI2C(0x48):  # Detect the pcf8591.
-        adc = PCF8591()
-    elif adc.detectI2C(0x4B):  # Detect the ads7830
+    if adc.detectI2C(0x4B):  # Detect the ads7830
         adc = ADS7830()
     else:
         print(
